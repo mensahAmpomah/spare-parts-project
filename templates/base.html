@@ -12,40 +12,19 @@
 <body class="flex flex-col min-h-screen">
 
     <!-- Navbar -->
-    <header class="bg-gray-900 text-white">
-        <div class="container mx-auto flex items-center justify-between px-4 py-3">
-            <!-- Logo -->
-            <div class="text-2xl font-bold">
-                <a href="#">Logo</a>
-            </div>
-
-            <!-- Menu Items -->
-            <nav class="hidden md:flex space-x-6 text-sm font-medium">
-                <a href="#" class="hover:text-yellow-400">VEHICLE SELECTOR</a>
-                <a href="#" class="hover:text-yellow-400">SHOP</a>
-                <a href="#" class="hover:text-yellow-400">SEARCH</a>
-                <a href="#" class="hover:text-yellow-400">HELP</a>
-            </nav>
-
-            <!-- Login/Signup -->
-            <div>
-                <a href="#" class="bg-yellow-500 hover:bg-yellow-400 text-black px-4 py-2 rounded">Login / Signup</a>
-            </div>
-        </div>
-    </header>
+   {% include 'navbar.html'%}
 
     <!-- Page Content -->
     <main class="flex-grow container mx-auto px-4 py-6">
         {% block content %}
+
+
+        
         {% endblock %}
     </main>
 
     <!-- Footer -->
-    <footer class="bg-gray-800 text-gray-300">
-        <div class="container mx-auto px-4 py-6 text-center">
-            <p>&copy; {{ year|default:2025 }} Fitamu. All rights reserved.</p>
-        </div>
-    </footer>
+    {% include 'footer.html'%}
 
     <script src="{% static 'js/scripts.js' %}"></script>
 
