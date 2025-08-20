@@ -2,32 +2,27 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-   
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Fitamu{% endblock %}</title>
-    <link rel="stylesheet" href="{% static 'dist/styles.css' %}">
-   
+    <!-- Link to your normal CSS -->
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    {% block extra_css %}{% endblock %}
 </head>
-<body class="flex flex-col min-h-screen">
+<body>
 
     <!-- Navbar -->
-   {% include 'navbar.html'%}
+    {% include 'navbar.html' %}
 
     <!-- Page Content -->
-    <main class="flex-grow container mx-auto px-4 py-6">
+    <main class="main-content">
         {% block content %}
-
-
-        
         {% endblock %}
     </main>
 
     <!-- Footer -->
-    {% include 'footer.html'%}
+    {% include 'footer.html' %}
 
-    <script src="{% static 'js/scripts.js' %}"></script>
-
+   
 </body>
 </html>
-
