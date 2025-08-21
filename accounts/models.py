@@ -78,7 +78,6 @@ class UserProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, blank=True,null=True)
     profile_picture = models.ImageField(upload_to='media',blank=True, null= True)
     city = models.CharField(max_length=50)
-    pin_code = models.CharField(max_length=6, blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     modified_at = models.DateTimeField(auto_now=True)
 
