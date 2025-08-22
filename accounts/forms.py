@@ -3,11 +3,12 @@ from .models import User, UserProfile
 
 
 class LoginForm(forms.Form):
-    username = forms.CharField()
+    email = forms.CharField()
     password = forms.CharField(widget=forms.PasswordInput)
 
 class UserRegistration(forms.ModelForm):
-    confirm_password = forms.CharField(widget=forms.PasswordInput)
+    password = forms.CharField(widget=forms.PasswordInput,required=False)
+    confirm_password = forms.CharField(widget=forms.PasswordInput,required=False)
     class Meta:
         model = User
         fields = [
@@ -35,5 +36,5 @@ class ProfileEditForm(forms.ModelForm):
     class Meta:
         model = UserProfile
         fields = [
-            'firstname','lastname','phone_number','profile_pic','city'
+            'profile_picture','city'
         ]

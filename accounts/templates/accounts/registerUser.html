@@ -14,8 +14,8 @@
 <form method="POST" class="sign-up">
   <h2> Create an Account: </h2>
   {% csrf_token %}
-  {{ form }}
-
+  {{ form.as_p }}
+{% comment %} <a href="{% url "home" %}"><input type="submit" value="Sign Up" /></a> {% endcomment %}
 <button type="submit">Submit</button>
 </form>
 {% endblock %}

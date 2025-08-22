@@ -15,7 +15,7 @@
   <h2>Login in your Account</h2>
   {% csrf_token %}
   {{ form }}
-
- <p><input type="submit" value="Log in" /></p>
+ {% comment %} <input type="hidden" name="next" value="{{ next }}"> {% endcomment %}
+ <p><a href="{% url "home" %}"><input type="submit" value="Log in" /></a></p>
 </form>
 {% endblock %}
