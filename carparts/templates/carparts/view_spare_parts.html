@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Spare Parts for {{ car.make }} {{ car.model }}</title>
+</head>
+<body>
+    <h2>Spare Parts for {{ car.make }} {{ car.model }} ({{ car.year }})</h2>
+
+    <a href="{% url 'select_car' %}">Back to Car List</a>
+    <hr>
+
+    {% if spare_parts %}
+        {% for part in spare_parts %}
+            <div>
+                {% if part.image %}
+                    <img src="{{ part.image.url }}" alt="{{ part.name }}" width="150">
+                {% endif %}
+                <h3>{{ part.name }}</h3>
+                <p>{{ part.description }}</p>
+                <p>Price: ${{ part.price }}</p>
+            </div>
+            <hr>
+        {% endfor %}
+    {% else %}
+        <p>No spare parts available for this car.</p>
+    {% endif %}
+
+</body>
+</html>
