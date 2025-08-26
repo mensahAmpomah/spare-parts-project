@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+
+
+ {% block extra_css %}
+ <link rel="stylesheet" href="{% static 'css/forms.css' %}">
+ {% endblock %}
+
+{% block content %}
+
+    {% if user.is_authenticated %}
+        <form method="POST" class="sign-up">
+        <h2>You've Logged out of your Account.</h2>
+        {% csrf_token %}
+        {{ form }}
+        <p><a href="{% url "home" %}"><input type="submit" value="Log out" /></a></p>
+        </form>
+    {% endif %}
+
+{% endblock %}

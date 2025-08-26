@@ -3,9 +3,9 @@
 {% block title %} Fitamu {% endblock %}
 
 {% block content %}
-  <h1>Welcome {{ user.username }}</h1>
-    {% if user.is_authenticated %}
-      <p>You are logged in!</p>
+  {% if user.is_authenticated %}
+  {% comment %} <h1>Welcome {{ user.username }}</h1> {% endcomment %}
+  <p>You are logged in!</p>
   {% else %}
     <p>You are not logged in.</p>
 {% endif %}

@@ -3,6 +3,8 @@ from .forms import UserRegistration, LoginForm, UserEditForm, ProfileEditForm
 from django.contrib.auth import authenticate, login as auth_login
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
+from django.contrib.auth import logout 
+# from .models import User
 # Create your views here.
 
 def registerUser(request):
@@ -47,6 +49,16 @@ def user_login(request):
     else:
         form = LoginForm()
     return render(request,"accounts/login.html",{"form": form})
+
+def logoutView(request):
+    name = request.user.firstname
+    logout(request)
+    messages.success(request,f"{name}, you have been logged out successfully")
+    return redirect('home')
+
+
+
+
 
 # @login_required
 def edit(request):
