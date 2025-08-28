@@ -1,24 +1,23 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Select Car</title>
-</head>
-<body>
-    <h2>Select a Car</h2>
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Select a Car{% endblock %}
 
-    {% if cars %}
-        {% for car in cars %}
-            <div>
-                <h3>{{ car.make }}</h3>
-                <p>Model: {{ car.model }}</p>
-                <p>Year: {{ car.year }}</p>
-                <a href="{% url 'view_spare_parts' car.id %}">View Spare Parts</a>
-            </div>
-            <hr>
-        {% endfor %}
-    {% else %}
-        <p>No cars available.</p>
-    {% endif %}
-
-</body>
-</html>
+{% block content %}
+    {% block extra_css %} 
+         <link rel="stylesheet" href="{% static 'css/selection.css' %}">
+    {% endblock %}
+<h1>Select a Car</h1>
+<div class="car-grid">
+  {% for car in cars %}
+    <div class="car-card">
+      {% if car.image %}
+        <img src="{{ car.image.url }}" alt="{{ car.make }}">
+      {% else %}
+        <div class="placeholder">No Image</div>
+      {% endif %}
+      <h2>{{ car.make }}</h2>
+      <a href="{% url 'spare_parts' car.id %}" class="view-btn">View Spare Parts</a>
+    </div>
+  {% endfor %}
+</div>
+{% endblock %}

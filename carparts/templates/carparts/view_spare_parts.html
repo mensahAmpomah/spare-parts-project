@@ -1,29 +1,26 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Spare Parts for {{ car.make }} {{ car.model }}</title>
-</head>
-<body>
-    <h2>Spare Parts for {{ car.make }} {{ car.model }} ({{ car.year }})</h2>
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Spare Parts for {{ car.make }}{% endblock %}
 
-    <a href="{% url 'select_car' %}">Back to Car List</a>
-    <hr>
-
-    {% if spare_parts %}
-        {% for part in spare_parts %}
-            <div>
-                {% if part.image %}
-                    <img src="{{ part.image.url }}" alt="{{ part.name }}" width="150">
-                {% endif %}
-                <h3>{{ part.name }}</h3>
-                <p>{{ part.description }}</p>
-                <p>Price: ${{ part.price }}</p>
-            </div>
-            <hr>
-        {% endfor %}
-    {% else %}
-        <p>No spare parts available for this car.</p>
-    {% endif %}
-
-</body>
-</html>
+{% block content %}
+    {% block extra_css %} 
+         <link rel="stylesheet" href="{% static 'css/selection.css' %}">
+    {% endblock %}
+<h1>Spare Parts for {{ car.make }}</h1>
+<div class="parts-grid">
+  {% for part in spare_parts %}
+    <div class="part-card">
+      {% if part.image %}
+        <img src="{{ part.image.url }}" alt="{{ part.name }}">
+      {% else %}
+        <div class="placeholder">No Image</div>
+      {% endif %}
+      <h3>{{ part.name }}</h3>
+      <p>{{ part.description }}</p>
+      <p class="price">Price: ${{ part.price }}</p>
+    </div>
+  {% empty %}
+    <p>No spare parts available for this car.</p>
+  {% endfor %}
+</div>
+{% endblock %}
