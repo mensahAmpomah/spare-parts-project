@@ -46,6 +46,7 @@ header{
     border: none;
     border-radius: 4px;
     background-color: #D9534F;
+    cursor:pointer;
 }
 
 /* .topbar button a{
@@ -69,4 +70,8 @@ footer{
   /* text-align: center; */
 }
 
+/* for the profile and logout profile  */
 
+.side-profile{
+    display: flex;
+}

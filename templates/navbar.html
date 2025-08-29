@@ -2,12 +2,12 @@
   <div class="topbar">
     <!-- Logo -->
     <div>
-      <a href="#">Logo</a>
+      <a href="{% url 'home' %}">Logo</a>
     </div>
 
     <!-- Menu Items -->
     <nav>
-      <a href="#">Vehicle selector</a>
+      <a href="{% url 'select-car' %}">Vehicle selector</a>
       <a href="#">Shop</a>
       <a href="#">Search</a>
       <a href="#">Help</a>
@@ -17,15 +17,27 @@
     <div>
       {% if user.is_authenticated %}
       <!-- Shows the profile when user is logged in -->
-       <p>
-         <a href="{% url 'edit' %}">Profile</a>
-       </p>
 
-        <!-- Show logout button when user is logged in -->
-        <form action="{% url 'logout' %}" method="post" style="display:inline;">
-          {% csrf_token %}
-          <button type="submit">Logout</button>
-        </form>
+       <div class="side-profile">
+                
+                  <a href="{% url 'edit' %}">
+                    <i class="fa-solid fa-user"></i>
+                  </a>
+
+                  <a href="{% url 'logout' %}">
+                    <button type="button" style="color:white; cursor:pointer">
+                       logout
+                    </button>
+                  </a>
+                
+
+                <!-- Show logout button when user is logged in -->
+                {% comment %} <form action="{% url 'logout' %}" method="post" style="display:inline;">
+                  {% csrf_token %}
+                 <button type="submit">Logout</button>
+                </form> {% endcomment %}
+       </div>
+       
       {% else %}
         <!-- Show login and signup buttons when user is NOT logged in -->
         <button>
