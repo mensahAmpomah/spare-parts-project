@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/shop.css' %}">
+<h2>Available Shops</h2>
+<div class="shop-container">
+  {% for shop in shops %}
+    <div class="shop-card">
+      <h3>{{ shop.name }}</h3>
+      <p>{{ shop.description }}</p>
+      <p><strong>📍 Location:</strong> {{ shop.location }}</p>
+      <a href="{% url 'shop_detail' shop.id %}" class="btn">View Shop</a>
+    </div>
+  {% empty %}
+    <p>No shops available yet.</p>
+  {% endfor %}
+</div>
+{% endblock %}

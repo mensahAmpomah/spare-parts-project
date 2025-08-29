@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/shop.css' %}">
+<h2>{{ shop.name }}</h2>
+<p>{{ shop.description }}</p>
+<p><strong>📍 Location:</strong> {{ shop.location }}</p>
+
+<h3>Spare Parts</h3>
+<div class="parts-container">
+  {% for part in spare_parts %}
+    <div class="part-card">
+      <h4>{{ part.name }}</h4>
+        {% if part.image %}
+            <img src="{{ part.image.url }}" alt="{{ part.name }}">
+        {% else %}
+        <div class="placeholder">No Image</div>
+      {% endif %}
+      <p>{{ part.description }}</p>
+      <p style="color:green"> ${{ part.price }}</p>
+      <p><em>For Car:</em> {{ part.car.make }}</p>
+    </div>
+  {% empty %}
+    <p>No spare parts in this shop yet.</p>
+  {% endfor %}
+</div>
+{% endblock %}

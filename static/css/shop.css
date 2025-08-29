@@ -1,0 +1,122 @@
+h2 {
+  font-size: 2rem;
+  color: #222;
+  text-align: center;
+  margin: 20px 0;
+}
+
+h3 {
+  font-size: 1.4rem;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+p {
+  font-size: 1rem;
+  line-height: 1.5;
+  margin: 6px 0;
+}
+
+/* --- Shop List Page --- */
+.shop-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  margin: 20px;
+  padding: 10px;
+}
+
+.shop-card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  padding: 15px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  text-align: center;
+}
+
+.shop-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0,0,0,0.15);
+}
+
+/* Button Styling */
+.btn {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 8px 15px;
+  background-color: #1e3a8a;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  transition: background 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #3742fa;
+}
+
+/* --- Shop Detail Page --- */
+.shop-info {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 10px 20px;
+  text-align: center;
+}
+
+.parts-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  margin: 20px;
+  padding: 10px;
+}
+
+.part-card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  padding: 15px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.part-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0,0,0,0.15);
+}
+
+.part-card h4 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  color: #444;
+}
+
+/* Spare Part Images */
+.part-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+/* Placeholder for missing images */
+.placeholder {
+  width: 100%;
+  height: 180px;
+  background: #e5e7eb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #666;
+  font-size: 0.9rem;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+/* Price Styling */
+.part-card p strong {
+  color: #1e3a8a;
+  font-weight: bold;
+}
