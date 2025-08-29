@@ -9,7 +9,7 @@
   {% if user.is_authenticated %}
    {% comment %} <h1>Welcome {{ user.username }}</h1> {% endcomment %}
    {% comment %} <p>You are logged in!</p> {% endcomment %}
-    <h1>Car Spare Parts</h1>
+    <h2>Car Spare Parts</h2>
     <div class="container">
     {% for part in parts %}
         <div class="card">
@@ -21,7 +21,17 @@
     {% endfor %}
 
   {% else %}
-    <p>You are not logged in.</p>
+    <h2>Welcome to Authentic Spareparts Shop</h2>
+    <h3>Car Spare Parts</h3>
+    <div class="container">
+    {% for part in parts %}
+        <div class="card">
+            <img src="{{ part.image.url }}" alt="{{ part.name }}">
+            <h3>{{ part.name }}</h3>
+            <p>{{ part.description }}</p>
+            <p class="price">${{ part.price }}</p>
+        </div>
+    {% endfor %}
 {% endif %}
 
 {% endblock %}

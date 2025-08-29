@@ -4,7 +4,9 @@ from django.contrib.auth import authenticate, login as auth_login
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.contrib.auth import logout 
-# from .models import User
+from .serializers import UserSerializer, UserProfileSerializer
+from rest_framework import generics
+from .models import User, UserProfile
 # Create your views here.
 
 def registerUser(request):
@@ -60,7 +62,7 @@ def logoutView(request):
 
 
 
-# @login_required
+@login_required
 def edit(request):
     if request.method == 'POST':
         userform = UserEditForm(
@@ -84,3 +86,20 @@ def edit(request):
             'userform':userform,
             'profileform':profileform
         })
+
+
+class UserListCreateAPI(generics.ListCreateAPIView):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
+
+class UserDetailAPI(generics.RetrieveUpdateDestroyAPIView):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
+
+class UserProfileListCreateAPI(generics.ListCreateAPIView):
+    queryset = UserProfile.objects.all()
+    serializer_class = UserProfileSerializer
+
+class UserProfileDetailAPI(generics.RetrieveUpdateDestroyAPIView):
+    queryset = UserProfile.objects.all()
+    serializer_class = UserProfileSerializer

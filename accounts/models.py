@@ -71,9 +71,6 @@ class User(AbstractBaseUser):
         return True
 
 
-
-
-
 class UserProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, blank=True,null=True,related_name='profile')
     profile_picture = models.ImageField(upload_to='media',blank=True, null= True)
