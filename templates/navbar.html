@@ -18,7 +18,7 @@
       {% if user.is_authenticated %}
       <!-- Shows the profile when user is logged in -->
 
-       <div class="side-profile">
+       {% comment %} <div class="side-profile"> {% endcomment %}
                 
                   <a href="{% url 'edit' %}">
                     <i class="fa-solid fa-user"></i>
@@ -36,7 +36,7 @@
                   {% csrf_token %}
                  <button type="submit">Logout</button>
                 </form> {% endcomment %}
-       </div>
+       {% comment %} </div> {% endcomment %}
        
       {% else %}
         <!-- Show login and signup buttons when user is NOT logged in -->

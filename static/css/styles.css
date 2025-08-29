@@ -71,7 +71,7 @@ footer{
 }
 
 /* for the profile and logout profile  */
-
 .side-profile{
     display: flex;
+    align-items: center;
 }
