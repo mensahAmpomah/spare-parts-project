@@ -11,9 +11,19 @@ class Car(models.Model):
     def __str__(self):
         return f"{self.make} "
 
+class Shop(models.Model):
+    name = models.CharField(max_length=100)
+    description = models.TextField()
+    location = models.CharField(max_length=200)
+
+    def __str__(self):
+        return self.name
+
+
 
 class SparePart(models.Model):
     car = models.ForeignKey(Car, on_delete=models.CASCADE, related_name="spare_parts")
+    shop = models.ForeignKey(Shop, on_delete=models.CASCADE, related_name="shop_spare_parts",null=True, blank=True)
     name = models.CharField(max_length=255)
     price = models.DecimalField(max_digits=10, decimal_places=2)
     description = models.TextField(blank=True, null=True)
