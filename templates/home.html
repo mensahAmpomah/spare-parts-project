@@ -4,7 +4,7 @@
 
 {% block content %}
     {% block extra_css %} 
-         <link rel="stylesheet" href="{% static 'css/home.css' %}">
+         <link rel="stylesheet" href="{% static 'src/home.css' %}">
     {% endblock %}
   {% if user.is_authenticated %}
    {% comment %} <h1>Welcome {{ user.username }}</h1> {% endcomment %}
